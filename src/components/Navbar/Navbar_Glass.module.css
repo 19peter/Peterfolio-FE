@@ -1,0 +1,119 @@
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: var(--spacing-sm) var(--spacing-lg);
+    z-index: 1000;
+    transition: var(--transition-slow);
+}
+
+.navbar.scrolled {
+    padding: var(--spacing-xs) var(--spacing-lg);
+}
+
+.navbarContainer {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-sm) var(--spacing-lg);
+    border-radius: 999px;
+    /* Pill shape */
+}
+
+.navbarLogo {
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.accentText {
+    color: var(--primary);
+    text-shadow: 0 0 10px var(--primary-glow);
+}
+
+.navbarLinks {
+    display: flex;
+    gap: var(--spacing-md);
+}
+
+.navItem {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 999px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: var(--transition-fast);
+    color: var(--text-dim);
+}
+
+.navItem:hover {
+    color: var(--text-main);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.navItem.active {
+    color: var(--text-main);
+    background: var(--primary);
+    box-shadow: 0 0 15px var(--primary-glow);
+}
+
+.mobileToggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--text-main);
+    cursor: pointer;
+}
+
+.mobileMenu {
+    display: none;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+    .navbarLinks {
+        display: none;
+    }
+
+    .mobileToggle {
+        display: block;
+    }
+
+    .mobileMenu {
+        position: absolute;
+        top: 80px;
+        right: var(--spacing-lg);
+        left: var(--spacing-lg);
+        display: flex;
+        flex-direction: column;
+        padding: var(--spacing-md);
+        gap: var(--spacing-sm);
+        transform: translateY(-20px);
+        opacity: 0;
+        pointer-events: none;
+        transition: var(--transition-fast);
+    }
+
+    .mobileMenu.open {
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: all;
+    }
+
+    .mobileNavItem {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: var(--spacing-sm);
+        border-radius: 0.5rem;
+    }
+
+    .mobileNavItem.active {
+        background: var(--primary);
+    }
+}

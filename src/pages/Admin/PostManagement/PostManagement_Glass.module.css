@@ -1,0 +1,167 @@
+.managementPage {
+    padding: var(--spacing-xl) var(--spacing-lg);
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-xl);
+}
+
+.titleSection h1 {
+    font-size: 2.5rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.backLink {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-dim);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: var(--transition-fast);
+}
+
+.backLink:hover {
+    color: var(--primary);
+}
+
+.titleSection p {
+    color: var(--text-dim);
+}
+
+.createBtn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition-fast);
+    text-decoration: none;
+}
+
+.createBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px var(--primary-glow);
+}
+
+.tableContainer {
+    overflow-x: auto;
+    border-radius: 12px;
+    border: 1px solid var(--glass-border);
+}
+
+.postTable {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.postTable th {
+    padding: 1.25rem;
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-dim);
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.postTable td {
+    padding: 1.25rem;
+    border-bottom: 1px solid var(--glass-border);
+    color: var(--text-main);
+    vertical-align: middle;
+}
+
+.postRow:hover {
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.postTitle {
+    font-weight: 600;
+    display: block;
+    margin-bottom: 0.25rem;
+}
+
+.postMeta {
+    font-size: 0.8rem;
+    color: var(--text-dim);
+}
+
+.categoryBadge {
+    padding: 0.25rem 0.75rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.categoryTech {
+    color: #60a5fa;
+    background: rgba(96, 165, 250, 0.1);
+}
+
+.categoryPersonal {
+    color: #f472b6;
+    background: rgba(244, 114, 182, 0.1);
+}
+
+.actions {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.tagList {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.tagSnippet {
+    font-size: 0.75rem;
+    color: var(--text-dim);
+}
+
+.actionBtn {
+    background: none;
+    border: 1px solid var(--glass-border);
+    color: var(--text-dim);
+    padding: 0.5rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: var(--transition-fast);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.editBtn:hover {
+    color: var(--primary) !important;
+    border-color: var(--primary) !important;
+    background: rgba(99, 102, 241, 0.1) !important;
+}
+
+.deleteBtn:hover {
+    color: #ef4444 !important;
+    border-color: #ef4444 !important;
+    background: rgba(239, 68, 68, 0.1) !important;
+}
+
+.emptyState {
+    padding: 4rem;
+    text-align: center;
+    color: var(--text-dim);
+}

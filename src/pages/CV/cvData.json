@@ -1,0 +1,38 @@
+{
+  "personal": {
+    "title": "Curriculum Vitae",
+    "email": "peter@example.com",
+    "github": "https://github.com/peter",
+    "linkedin": "https://linkedin.com/in/peter"
+  },
+  "summary": "Creative Full-Stack Developer with 5+ years of experience in building scalable web applications. Specialized in React, Node.js, and modern CSS architectures. Passionate about creating fluid user experiences and clean, maintainable codebases.",
+  "experience": [
+    {
+      "role": "Senior Frontend Developer",
+      "company": "TechFlow Systems",
+      "period": "2022 - Present",
+      "highlights": [
+        "Led the migration of a legacy dashboard to a modern React architecture.",
+        "Implemented a comprehensive design system used across 5 different products.",
+        "Optimized web performance, reducing TTI by 40%."
+      ]
+    }
+  ],
+  "skills": [
+    {
+      "category": "Frontend",
+      "items": "React, Next.js, Vue, TypeScript, Tailwind, CSS Modules, Framer Motion"
+    },
+    {
+      "category": "Backend",
+      "items": "Node.js, Express, PostgreSQL, MongoDB, GraphQL, Redis"
+    }
+  ],
+  "education": [
+    {
+      "degree": "B.Sc. in Computer Science",
+      "institution": "University of Technology",
+      "period": "2015 - 2019"
+    }
+  ]
+}

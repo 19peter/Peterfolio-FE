@@ -1,0 +1,140 @@
+.blogListPage {
+    padding: var(--spacing-xl) var(--spacing-lg);
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.pageHeader {
+    margin-bottom: var(--spacing-xl);
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.pageTitle {
+    font-size: 3rem;
+    margin-bottom: var(--spacing-xs);
+}
+
+.pageDescription {
+    color: var(--text-dim);
+    font-size: 1.1rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+.searchBar {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: 0.5rem 1.25rem;
+    max-width: 500px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--glass-border);
+    transition: var(--transition-fast);
+}
+
+.searchBar:focus-within {
+    border-color: var(--primary);
+    background: rgba(255, 255, 255, 0.06);
+    box-shadow: 0 0 15px var(--primary-glow);
+}
+
+.searchIcon {
+    color: var(--text-dim);
+}
+
+.searchInput {
+    flex: 1;
+    background: none;
+    border: none;
+    color: var(--text-main);
+    font-size: 1rem;
+    outline: none;
+}
+
+.searchInput::placeholder {
+    color: var(--text-muted);
+}
+
+.clearBtn {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.25rem;
+    border-radius: 50%;
+    transition: var(--transition-fast);
+}
+
+.clearBtn:hover {
+    color: var(--text-main);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.blogGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+.blogCard {
+    padding: var(--spacing-lg);
+    border-radius: 1rem;
+    transition: var(--transition-fast);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    text-decoration: none;
+    color: inherit;
+}
+
+.blogCard:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.blogDate {
+    font-size: 0.8rem;
+    color: var(--text-dim);
+}
+
+.blogCardTitle {
+    font-size: 1.5rem;
+    margin-top: 0.25rem;
+}
+
+.blogSummary {
+    color: var(--text-dim);
+    line-height: 1.5;
+    font-size: 0.95rem;
+}
+
+.blogTags {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-top: auto;
+}
+
+.tag {
+    font-size: 0.8rem;
+    color: var(--primary);
+    font-weight: 500;
+}
+
+.placeholder {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 200px;
+    border: 2px dashed var(--glass-border);
+}
