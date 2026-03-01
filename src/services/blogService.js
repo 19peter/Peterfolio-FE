@@ -15,6 +15,19 @@ export const blogService = {
     },
 
     /**
+     * Fetch all blogs including hidden ones (Requires Admin Authentication)
+     */
+    getAllBlogsAdmin: async () => {
+        try {
+            const response = await authFetchApi('/blogs/admin');
+            return await response.json();
+        } catch (error) {
+            console.error('Failed to fetch admin blogs:', error);
+            throw error;
+        }
+    },
+
+    /**
      * Fetch a specific blog by ID
      */
     getBlogById: async (id) => {
@@ -70,6 +83,21 @@ export const blogService = {
             return await response.json();
         } catch (error) {
             console.error(`Failed to delete blog ${id}:`, error);
+            throw error;
+        }
+    },
+
+    /**
+     * Toggle blog visibility (Requires Admin Authentication)
+     */
+    toggleVisibility: async (id) => {
+        try {
+            const response = await authFetchApi(`/blogs/${id}/toggle-visibility`, {
+                method: 'PATCH'
+            });
+            return await response.json();
+        } catch (error) {
+            console.error(`Failed to toggle visibility for blog ${id}:`, error);
             throw error;
         }
     }

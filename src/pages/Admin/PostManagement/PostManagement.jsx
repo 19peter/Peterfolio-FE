@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Plus, Edit2, Trash2, ArrowLeft, ExternalLink } from 'lucide-react';
+import { Plus, Edit2, Trash2, ArrowLeft, ExternalLink, Eye, EyeOff } from 'lucide-react';
 import themeStyles from './styles';
 import { useStyles } from '../../../hooks/useStyles';
 import { blogService } from '../../../services/blogService';
@@ -12,7 +12,7 @@ const PostManagement = () => {
 
     const loadBlogs = () => {
         setLoading(true);
-        blogService.getAllBlogs()
+        blogService.getAllBlogsAdmin()
             .then(data => {
                 setBlogs(data);
                 setLoading(false);
@@ -38,6 +38,15 @@ const PostManagement = () => {
         }
     };
 
+    const handleToggleVisibility = async (id) => {
+        try {
+            const updatedBlog = await blogService.toggleVisibility(id);
+            setBlogs(blogs.map(blog => blog.id === id ? updatedBlog : blog));
+        } catch (error) {
+            alert('Failed to toggle visibility: ' + error.message);
+        }
+    };
+
     return (
         <div className={styles.managementPage}>
             <header className={styles.header}>
@@ -59,7 +68,7 @@ const PostManagement = () => {
                         <tr>
                             <th>Title & Date</th>
                             <th>Category</th>
-                            <th>Tags</th>
+                            <th>Status</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
@@ -77,12 +86,9 @@ const PostManagement = () => {
                                         </span>
                                     </td>
                                     <td>
-                                        <div className={styles.tagList}>
-                                            {blog.tags.slice(0, 2).map(tag => (
-                                                <span key={tag} className={styles.tagSnippet}>#{tag}</span>
-                                            ))}
-                                            {blog.tags.length > 2 && <span className={styles.tagSnippet}>+{blog.tags.length - 2}</span>}
-                                        </div>
+                                        <span className={`${styles.statusBadge} ${blog.isVisible !== false ? styles.statusVisible : styles.statusHidden}`}>
+                                            {blog.isVisible !== false ? 'Visible' : 'Hidden'}
+                                        </span>
                                     </td>
                                     <td>
                                         <div className={styles.actions}>
@@ -92,6 +98,13 @@ const PostManagement = () => {
                                             <Link to={`/admin/edit/${blog.id}`} className={`${styles.actionBtn} ${styles.editBtn}`}>
                                                 <Edit2 size={16} />
                                             </Link>
+                                            <button
+                                                onClick={() => handleToggleVisibility(blog.id)}
+                                                className={`${styles.actionBtn} ${blog.isVisible !== false ? styles.visibleBtn : styles.hiddenBtn}`}
+                                                title={blog.isVisible !== false ? "Hide Post" : "Show Post"}
+                                            >
+                                                {blog.isVisible !== false ? <Eye size={16} /> : <EyeOff size={16} />}
+                                            </button>
                                             <button
                                                 onClick={() => handleDelete(blog.id)}
                                                 className={`${styles.actionBtn} ${styles.deleteBtn}`}

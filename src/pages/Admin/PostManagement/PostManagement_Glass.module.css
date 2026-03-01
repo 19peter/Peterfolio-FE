@@ -154,6 +154,18 @@
     background: rgba(99, 102, 241, 0.1) !important;
 }
 
+.visibleBtn:hover {
+    color: #10b981 !important;
+    border-color: #10b981 !important;
+    background: rgba(16, 185, 129, 0.1) !important;
+}
+
+.hiddenBtn:hover {
+    color: #f59e0b !important;
+    border-color: #f59e0b !important;
+    background: rgba(245, 158, 11, 0.1) !important;
+}
+
 .deleteBtn:hover {
     color: #ef4444 !important;
     border-color: #ef4444 !important;
