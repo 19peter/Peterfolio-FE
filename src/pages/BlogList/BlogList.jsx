@@ -74,6 +74,11 @@ const BlogList = ({ type }) => {
                 {filteredBlogs.length > 0 ? (
                     filteredBlogs.map(blog => (
                         <Link to={`/blog/${blog.id}`} key={blog.id} className={`${styles.blogCard} glass-panel`}>
+                            {blog.thumbnail && (
+                                <div className={styles.blogCardImage}>
+                                    <img src={blog.thumbnail} alt={blog.title} loading="lazy" />
+                                </div>
+                            )}
                             <div className={styles.blogDate}>{blog.date}</div>
                             <h3 className={styles.blogCardTitle}>{blog.title}</h3>
                             <p className={styles.blogSummary}>{blog.summary}</p>
