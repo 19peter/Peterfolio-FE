@@ -52,11 +52,7 @@ const BlogDetail = () => {
             </button>
 
             <header className={styles.blogHeader}>
-                {blog.thumbnail && (
-                    <div className={styles.heroImageContainer}>
-                        <img src={blog.thumbnail} alt={blog.title} className={styles.heroImage} />
-                    </div>
-                )}
+
                 <div className={styles.blogMeta}>
                     <span><Calendar size={14} /> {blog.date}</span>
                     <span><User size={14} /> {blog.author}</span>
