@@ -79,6 +79,12 @@ const BlogDetail = () => {
                                     style={atomDark}
                                     language={match[1]}
                                     PreTag="div"
+                                    customStyle={{
+                                        margin: 0,
+                                        padding: '1.5rem',
+                                        fontSize: '0.9rem',
+                                        background: 'transparent'
+                                    }}
                                     {...props}
                                 >
                                     {String(children).replace(/\n$/, '')}

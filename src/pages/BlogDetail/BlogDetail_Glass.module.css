@@ -4,6 +4,20 @@
     margin: 0 auto;
 }
 
+@media (max-width: 768px) {
+    .blogDetailPage {
+        padding: var(--spacing-lg) var(--spacing-sm);
+    }
+}
+
+@media (max-width: 375px) {
+    .blogDetailPage {
+        padding: var(--spacing-md) var(--spacing-xs);
+    }
+}
+
+
+
 .backBtn {
     display: flex;
     align-items: center;
@@ -47,13 +61,30 @@
     line-height: 1.1;
 }
 
+@media (max-width: 768px) {
+    .blogTitle {
+        font-size: 2.2rem;
+        word-wrap: break-word;
+    }
+}
+
+@media (max-width: 375px) {
+    .blogTitle {
+        font-size: 1.8rem;
+    }
+}
+
+
+
 .blogMeta {
     display: flex;
     gap: var(--spacing-md);
     color: var(--text-dim);
     font-size: 0.9rem;
     margin-bottom: var(--spacing-md);
+    flex-wrap: wrap;
 }
+
 
 .tagContainer {
     display: flex;
@@ -73,8 +104,25 @@
 .blogContent {
     padding: var(--spacing-xl);
     line-height: 1.8;
-    font-size: 1.1rem;
+    font-size: 1.15rem;
+    /* Slightly larger for readability */
 }
+
+@media (max-width: 768px) {
+    .blogContent {
+        padding: var(--spacing-md);
+        font-size: 1.05rem;
+    }
+}
+
+@media (max-width: 425px) {
+    .blogContent {
+        font-size: 0.95rem;
+        line-height: 1.7;
+    }
+}
+
+
 
 /* Markdown Overrides */
 .blogContent h1,
@@ -113,7 +161,22 @@
     margin-bottom: var(--spacing-lg);
     border-radius: 8px;
     border: 1px solid var(--glass-border);
+    max-width: 100%;
+    overflow-x: auto;
+    /* Ensure horizontal scroll on mobile */
+    -webkit-overflow-scrolling: touch;
 }
+
+@media (max-width: 768px) {
+    .blogContent pre {
+        margin-left: calc(-1 * var(--spacing-md));
+        margin-right: calc(-1 * var(--spacing-md));
+        border-radius: 0;
+        border-left: none;
+        border-right: none;
+    }
+}
+
 
 .imageWrapper {
     margin: var(--spacing-xl) 0;
@@ -166,6 +229,19 @@
     border: 0;
     border-radius: 12px;
 }
+
+@media (max-width: 768px) {
+    .videoWrapper {
+        border-radius: 0;
+        margin-left: calc(-1 * var(--spacing-md));
+        margin-right: calc(-1 * var(--spacing-md));
+    }
+
+    .videoFrame {
+        border-radius: 0;
+    }
+}
+
 
 /* Sharing Section */
 .shareSection {
