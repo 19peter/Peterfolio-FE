@@ -31,6 +31,14 @@ const BlogDetail = () => {
             });
     }, [id]);
 
+    const calculateReadingTime = (text) => {
+        if (!text) return 0;
+        const wordsPerMinute = 200;
+        const words = text.trim().split(/\s+/).length;
+        const minutes = Math.ceil(words / wordsPerMinute);
+        return minutes;
+    };
+
     if (loading) return <div className={styles.blogDetailPage}><p style={{ textAlign: 'center', marginTop: '50px' }}>Loading Blog...</p></div>;
     if (error) return <div className={styles.blogDetailPage}><p style={{ textAlign: 'center', marginTop: '50px', color: 'red' }}>Error: {error}</p></div>;
 
@@ -45,6 +53,8 @@ const BlogDetail = () => {
         );
     }
 
+    const readingTime = calculateReadingTime(blog.content);
+
     return (
         <div className={styles.blogDetailPage}>
             <button onClick={() => navigate(-1)} className={styles.backBtn}>
@@ -56,7 +66,7 @@ const BlogDetail = () => {
                 <div className={styles.blogMeta}>
                     <span><Calendar size={14} /> {blog.date}</span>
                     <span><User size={14} /> {blog.author}</span>
-                    <span><Clock size={14} /> 5 min read</span>
+                    <span><Clock size={14} /> {readingTime} min read</span>
                 </div>
                 <h1 className={styles.blogTitle}>{blog.title}</h1>
                 <div className={styles.tagContainer}>
