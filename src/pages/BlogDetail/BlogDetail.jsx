@@ -8,6 +8,7 @@ import { ArrowLeft, Clock, Calendar, User } from 'lucide-react';
 import themeStyles from './styles';
 import { useStyles } from '../../hooks/useStyles';
 import { blogService } from '../../services/blogService';
+import { API_BASE_URL } from '../../services/api';
 
 const BlogDetail = () => {
     const { id } = useParams();
@@ -137,10 +138,8 @@ const BlogDetail = () => {
                         <button
                             className={`${styles.shareBtn} ${styles.twitterBtn}`}
                             onClick={() => {
-                                const shareUrl = `${window.location.origin.replace('5173', '5000')}/blog/${blog.id}`;
-                                // Better: Use a relative path if possible, but social shares need absolute.
-                                // We can construct it from the current script source or a config.
-                                const absoluteShareUrl = `${window.location.protocol}//${window.location.host.includes('localhost') ? 'localhost:5000' : window.location.host}/blog/${blog.id}`;
+                                // Unified sharing URL pointing to the backend proxy
+                                const absoluteShareUrl = `${API_BASE_URL}/blogs/share/${blog.id}`;
 
                                 const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(blog.title)}&url=${encodeURIComponent(absoluteShareUrl)}`;
                                 window.open(twitterUrl, '_blank');
@@ -152,7 +151,7 @@ const BlogDetail = () => {
                         <button
                             className={`${styles.shareBtn} ${styles.linkedinBtn}`}
                             onClick={() => {
-                                const absoluteShareUrl = `${window.location.protocol}//${window.location.host.includes('localhost') ? 'localhost:5000' : window.location.host}/blog/${blog.id}`;
+                                const absoluteShareUrl = `${API_BASE_URL}/blogs/share/${blog.id}`;
                                 const linkedinUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(absoluteShareUrl)}`;
                                 window.open(linkedinUrl, '_blank');
                             }}
@@ -163,7 +162,7 @@ const BlogDetail = () => {
                         <button
                             className={`${styles.shareBtn} ${styles.linkBtn}`}
                             onClick={() => {
-                                const absoluteShareUrl = `${window.location.protocol}//${window.location.host.includes('localhost') ? 'localhost:5000' : window.location.host}/blog/${blog.id}`;
+                                const absoluteShareUrl = `${API_BASE_URL}/blogs/share/${blog.id}`;
                                 navigator.clipboard.writeText(absoluteShareUrl);
                                 alert('Share link copied to clipboard!');
                             }}
